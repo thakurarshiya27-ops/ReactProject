@@ -33,7 +33,7 @@ export default function EscrowApp() {
   async function connectWallet() {
     if(window.ethereum) {
       await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const tempSigner = provider.getSigner();
+      const tempSigner = await provider.getSigner();
       setSigner(tempSigner);
       const address = await tempSigner.getAddress();
       setCurrentAccount(address);
